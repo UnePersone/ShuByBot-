@@ -10,7 +10,7 @@ const tmiConfig = {
     },
     identity: {
         username: "Shubybot",
-        password: "oauth:4llqohww1904i6d68qoyp4vepwei2d"
+        password: ""
     },
     channels: [
         laChaine
