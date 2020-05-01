@@ -3,7 +3,7 @@ const laChaine = "Shubakay"
 
 const tmiConfig = {
     options: {
-        debug: true
+        debug: false
     },
     connection: {
         reconnect:  true
@@ -16,9 +16,6 @@ const tmiConfig = {
         laChaine
     ]
 };
-
-
-
 
 
 function startBot(){
