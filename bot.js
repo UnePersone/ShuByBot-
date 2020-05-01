@@ -17,11 +17,13 @@ const tmiConfig = {
     ]
 };
 
-let client = new tmi.client(tmiConfig);
+
 
 
 
 function startBot(){
+
+let client = new tmi.client(tmiConfig);
 
 client.connect();
 
