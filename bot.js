@@ -10,7 +10,7 @@ const tmiConfig = {
     },
     identity: {
         username: "Shubybot",
-        password: ""
+        password:  process.env."nom de la variable de heroku"
     },
     channels: [
         laChaine
