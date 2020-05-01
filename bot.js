@@ -19,8 +19,11 @@ const tmiConfig = {
 
 let client = new tmi.client(tmiConfig);
 
-client.connect();
 
+
+function startBot(){
+
+client.connect();
 
 client.on('connected', (adress, port) => {
     console.log(client.getUsername() + " s'est connecté sur : " + adress + ", port : " + port);
@@ -61,3 +64,6 @@ client.on('chat',(channel, user, message, self)=>{
 function sansExcla(chaine){
 	return chaine.substring(1);
 }
+
+}
+module.exports.start = startBot();
