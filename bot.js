@@ -1,5 +1,5 @@
 ﻿const tmi = require('tmi.js');
-const laChaine = "HeliosDesBois"
+const laChaine = "Shubakay"
 
 const tmiConfig = {
     options: {
@@ -66,4 +66,4 @@ function sansExcla(chaine){
 }
 
 }
-module.exports.start = startBot();
+module.exports.start = startBot;
