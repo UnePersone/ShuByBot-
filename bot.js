@@ -28,8 +28,7 @@ let client = new tmi.client(tmiConfig);
 client.connect();
 
 client.on('connected', (adress, port) => {
-    console.log(client.getUsername() + " s'est connecté sur : " + adress + ", port : " + port);
-    client.say(laChaine, "Salut Twitch je suis un humain Kappa");
+    console.log(client.getUsername() + " s'est connecté sur : " + adress + ", port : " + port)
 });
 
 client.on('chat',(channel, user, message, self)=>{
