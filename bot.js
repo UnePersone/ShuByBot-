@@ -104,6 +104,26 @@ function commande(message){
 		answer += "Je suis Shubakay ! Pour plus d'info pose ta question en live  MrDestructoid"
 		}
 		
+		if(message == "persone"){
+		answer += "Doux créateur de l'enfer pour certain !"
+		}
+		
+		if(message == "arthur"){
+		answer +="Cet homme a tout le temps faim et est le dindon de la farce"
+		}
+		
+		if(message == "vkxe"){
+		answer += '"Elle aime crier !"'
+		}
+		
+		if(message == "hoxalide"){
+		answer += '"Supporte Shuby h24 mais imhotep"'
+		}
+		
+		if(message == "jikan"){
+		answer += '"Est un homme tout doux plein de gentillesse"'
+		}
+		
 		return answer;
 }
 
