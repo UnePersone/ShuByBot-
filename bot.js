@@ -112,10 +112,9 @@ function ortograf(m){
 		return answer;
 		}
 		
-}
+
 function sansExcla(chaine){
 	return chaine.substring(1);
 }
-
 
 module.exports.start = startBot;
