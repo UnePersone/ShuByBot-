@@ -30,16 +30,27 @@ client.on('connected', (adress, port) => {
 	
 	client.on('chat',(channel, user, message, self)=>{
 	
-	let m = message.toLowerCase();
+	if (self) { return; } // Ignore messages from the bot
+	let m = message;
     let username = user.username;
 	
 	var answer = "";
 	
-	if(message.charAt(0) == '!'){
+	if(message.charAt(0) == '!'){		//commande
 		answer +=commande(m)
 		client.say(laChaine,answer)
 	}
 	else{
+		
+		var nbMaj = fullMaj(m);		//full maj
+		
+		if((nbMaj>=10) && (username != "une_persone")){
+			if(isModerator(username) != true){					//si modo pas to
+				client.say(laChaine,"/timeout "+username+" 1");
+				}
+			client.say(laChaine,"HéHo on se calme sur les MAJ " + username + "a dit : " + message.toLowerCase());
+			}
+			
 		answer += ortograf(m);
 		if(answer!=""){
 			client.say(laChaine, username +" "+answer)
@@ -50,28 +61,47 @@ client.on('connected', (adress, port) => {
 
 }
 
+function isModerator(user){
+    return user.mod;
+}
+
+function fullMaj(message){
+	var taille = message.length;
+	var nb = 0;
+	for(let i = 0; i<taille; i++){
+		if((message.charAt(i) >= 'A') && (message.charAt(i) <= 'Z')){
+		nb=nb + 1;
+		}
+	}
+	return nb;
+}
+
 function commande(message){
 		var answer = "";
-		message=sansExcla(message);
+		message=sansExcla(message.toLowerCase());
+		
+		if(message == "help"){
+		answer += "t'annonce que tu as accès à toutes les commandes suivantes: !Discord | !Twitter | !Youtube | !Instagram | !Info"
+		}
 		
 		if(message == "discord"){
-		answer += "Rejoins nous ici : https://discord.gg/xJPW6dB"
+		answer += "Rejoins nous ici: https://discord.gg/xJPW6dB"
 		}
 		
 		if(message == "twitter"){
-		answer += "Pour tout savoir sur Shubakay c'est ici : https://twitter.com/shubakay"
+		answer += "Pour tout savoir sur Shubakay c'est ici: https://twitter.com/shubakay"
 		}
 		
 		if(message == "youtube"){
-		answer += "Pour passer le temps c'est juste ici : https://www.youtube.com/channel/UCXyXgpsmShAyuNTr19AoFkA"
+		answer += "Pour passer le temps c'est juste ici: https://www.youtube.com/channel/UCXyXgpsmShAyuNTr19AoFkA"
 		}
 		
 		if(message == "instagram"){
-		answer += "Pour voir les meilleures photos c'est bien évidemment ici : https://www.instagram.com/si_monphoto/"
+		answer += "Pour voir les meilleures photos c'est bien évidemment ici: https://www.instagram.com/si_monphoto/"
 		}
 		
 		if(message == "info"){
-		answer += "Je suis Shubakay, j'ai 20 années derrière moi ! Mon objectif : Te faire passer du bon temps pour tout oublier !"
+		answer += "Je suis Shubakay ! Pour plus d'info pose ta question en live  MrDestructoid"
 		}
 		
 		return answer;
@@ -112,7 +142,6 @@ function ortograf(m){
 		return answer;
 		}
 		
-
 function sansExcla(chaine){
 	return chaine.substring(1);
 }
