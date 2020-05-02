@@ -37,14 +37,15 @@ client.on('connected', (adress, port) => {
 	
 	if(message.charAt(0) == '!'){
 		answer +=commande(m)
+		client.say(laChaine,answer)
 	}
 	else{
-		answer += ortograf(m)
+		answer += ortograf(m);
+		if(answer!=""){
+			client.say(laChaine, username +" "+answer)
+			}
 	}
 	
-	if(answer != ""){
-		client.say(laChaine, username +" "+answer)
-	}
 })
 
 }
