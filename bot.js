@@ -24,8 +24,8 @@ let client = new tmi.client(tmiConfig);
 
 client.connect();
 
-client.on('connected', (adress, 5000) => {
-    console.log(client.getUsername() + " s'est connecté sur : " + adress + ", port : " + port)
+client.on('connected', (adress, '5000') => {
+    console.log(client.getUsername() + " s'est connecté sur : " + adress + ", port : " + '5000')
 });
 	
 	client.on('chat',(channel, user, message, self)=>{
