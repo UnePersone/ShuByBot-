@@ -17,7 +17,10 @@ const tmiConfig = {
     ]
 };
 
-
+var port = process.env.PORT || 8000;
+server.listen(port, function() {
+    console.log("App is running on port " + port);
+});
 function startBot(){
 
 let client = new tmi.client(tmiConfig);
