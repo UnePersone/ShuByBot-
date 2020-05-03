@@ -16,7 +16,7 @@ const tmiConfig = {
         laChaine
     ]
 };
-
+let server = require('http').Server(app);
 var port = process.env.PORT || 8000;
 server.listen(port, function() {
     console.log("App is running on port " + port);
