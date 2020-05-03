@@ -24,7 +24,7 @@ let client = new tmi.client(tmiConfig);
 
 client.connect();
 
-client.on('connected', (adress, port) => {
+client.on('connected', (adress, 5000) => {
     console.log(client.getUsername() + " s'est connecté sur : " + adress + ", port : " + port)
 });
 	
