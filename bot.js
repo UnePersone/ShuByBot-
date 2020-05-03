@@ -38,7 +38,7 @@ client.on('connected', (adress, port) => {
 	
 	if(message.charAt(0) == '!'){		//commande
 		answer +=commande(m)
-		client.say(laChaine,answer)
+		client.action(laChaine,answer)
 	}
 	else{
 		
@@ -55,10 +55,35 @@ client.on('connected', (adress, port) => {
 		if(answer!=""){
 			client.say(laChaine, username +" "+answer)
 			}
+			
+		var cheh = chehUser(m);
+		if(cheh != false){
+			client.say(laChaine, "I heard cheh in my oreillette " + cheh)
+			}
 	}
 	
 })
 
+}
+
+function chehUser(message,user){
+	message.toLowerCase();
+	var cheh = "cheh ";
+	var i = 0;
+	var here = true;
+	while((i<cheh.length) && (here == true)){
+		if(message.charAt(i) != cheh.charAt(i)){
+			here = false
+		}
+		i+=1;
+	}
+	
+	if(here == true){
+	return message.substring(5)
+	}
+	else{
+	return false
+	}
 }
 
 function isModerator(user){
@@ -122,6 +147,10 @@ function commande(message){
 		
 		if(message == "jikan"){
 		answer += '"Est un homme tout doux plein de gentillesse"'
+		}
+		
+		if(message == "shubakay"){
+		answer += "ouais ouais ouais ouais ouais"
 		}
 		
 		return answer;
